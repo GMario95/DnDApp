@@ -1,0 +1,9 @@
+<resources>
+    <!-- Common Strings -->
+    <string name="app_name">DnD</string>
+    <string name="options_text">Options</string>
+
+    <!-- Home Fragment -->
+    <string name="home_title">DnD Character Book</string>
+
+</resources>
