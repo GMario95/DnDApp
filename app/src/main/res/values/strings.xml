@@ -3,7 +3,13 @@
     <string name="app_name">DnD</string>
     <string name="options_text">Options</string>
 
-    <!-- Home Fragment -->
+    <!-- Home -->
     <string name="home_title">DnD Character Book</string>
+
+    <!-- Character Setup -->
+    <string name="character_name">Name</string>
+    <string name="character_class">Class</string>
+    <string name="level">Level</string>
+    <string name="create">create</string>
 
 </resources>

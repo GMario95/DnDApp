@@ -1,14 +1,14 @@
-package com.example.mario.dnd.Views;
+package com.example.mario.dnd.Models;
 
 import com.example.mario.dnd.Common.CharacterClass;
 
-public class SquarePanel {
+public class CharacterPanel {
 
     private String mCharacterName;
     private CharacterClass mCharacterClass;
     private int mCharacterLevel;
 
-    public SquarePanel(String characterName, CharacterClass characterClass, int characterlevel) {
+    public CharacterPanel(String characterName, CharacterClass characterClass, int characterlevel) {
         mCharacterName = characterName;
         mCharacterClass = characterClass;
         mCharacterLevel = characterlevel;

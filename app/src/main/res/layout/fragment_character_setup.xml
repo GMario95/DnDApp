@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:id="@+id/toolbar_character_setup"
+        android:background="@color/secondary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_character_setup">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edittext_character_name"
+                android:layout_width="match_parent"
+                android:hint="@string/character_name"
+                android:maxLines="1"
+                android:layout_margin="@dimen/common_margin"
+                android:layout_height="@dimen/edittext_height" />
+
+            <EditText
+                android:id="@+id/edittext_character_class"
+                android:layout_width="match_parent"
+                android:hint="@string/character_class"
+                android:maxLines="1"
+                android:layout_below="@id/edittext_character_name"
+                android:layout_margin="@dimen/common_margin"
+                android:layout_height="@dimen/edittext_height" />
+
+            <EditText
+                android:id="@+id/edittext_character_level"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:hint="@string/level"
+                android:maxLines="1"
+                android:ems="0"
+                android:layout_below="@id/edittext_character_class"
+                android:layout_margin="@dimen/common_margin"
+                android:layout_height="@dimen/edittext_height" />
+
+            <!-- TODO: Create some styles and find a better font family for button -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:id="@+id/button_character_setup"
+                android:layout_below="@id/edittext_character_level"
+                android:layout_margin="@dimen/common_margin"
+                android:background="@drawable/background_form_button"
+                android:text="@string/create"
+                android:textSize="48sp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/primary"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

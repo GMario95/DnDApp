@@ -2,9 +2,9 @@ package com.example.mario.dnd.Views;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -12,18 +12,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mario.dnd.Adapters.SquarePanelAdapter;
+import com.example.mario.dnd.Adapters.CharacterPanelAdapter;
 import com.example.mario.dnd.Common.CharacterClass;
-import com.example.mario.dnd.MainActivity;
+import com.example.mario.dnd.Listeners.HomeFragmentListener;
+import com.example.mario.dnd.Models.CharacterPanel;
 import com.example.mario.dnd.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements HomeFragmentListener {
 
     private Context mContext;
     private Toolbar mToolbar; //TODO:(Mario) Toolbar helper class?
@@ -31,7 +31,7 @@ public class HomeFragment extends Fragment {
     private MenuItem mToolbarOptions;
 
     private RecyclerView mSquarePanelListView;
-    private SquarePanelAdapter mSquarePanelAdapter;
+    private CharacterPanelAdapter mCharacterPanelAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,8 +59,10 @@ public class HomeFragment extends Fragment {
         });
 
         mSquarePanelListView = view.findViewById(R.id.recycler_view_home);
-        mSquarePanelAdapter = new SquarePanelAdapter(mContext);
-        mSquarePanelListView.setAdapter(mSquarePanelAdapter);
+        mCharacterPanelAdapter = new CharacterPanelAdapter(mContext, this);
+        mCharacterPanelAdapter.setData(generateSquarePanelList());
+        mSquarePanelListView.setAdapter(mCharacterPanelAdapter);
+        mSquarePanelListView.setLayoutManager(new LinearLayoutManager(mContext));
 
         return view;
     }
@@ -68,7 +70,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        mSquarePanelAdapter.setData(generateSquarePanelList(2));
     }
 
     @Override
@@ -81,13 +82,17 @@ public class HomeFragment extends Fragment {
         super.onDestroy();
     }
 
-    private List<SquarePanel> generateSquarePanelList(int amount) {
-        List<SquarePanel> squarePanelList = new ArrayList<>();
-        for(int i = 0; i < amount; i ++) {
-            squarePanelList.add(new SquarePanel("Melzar", CharacterClass.Wizard, 2));
-        }
+    @Override
+    public void createCharacter() {
+        getFragmentManager().beginTransaction().replace(R.id.content, new CharacterSetupFragment()).commit();
+    }
 
-        return squarePanelList;
+    private List<CharacterPanel> generateSquarePanelList() {
+        List<CharacterPanel> characterPanelList = new ArrayList<>();
+        characterPanelList.add(new CharacterPanel("Melzar", CharacterClass.Wizard, 2));
+        characterPanelList.add(new CharacterPanel("Lozar", CharacterClass.Bard, 4));
+        characterPanelList.add(new CharacterPanel(null, CharacterClass.Monk, 0)); //Dummy panel for the 'Char creation panel'
+        return characterPanelList;
     }
 
 }

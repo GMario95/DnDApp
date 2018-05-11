@@ -5,7 +5,11 @@
     <dimen name="common_margin_half">8dp</dimen>
     <dimen name="icon_size">24dp</dimen>
     <dimen name="toolbar_height">48dp</dimen>
+    <dimen name="edittext_height">48dp</dimen>
 
-    <dimen name="square_panel_size">156dp</dimen>
-    <dimen name="square_panel_add_size">148dp</dimen>
+    <!-- Home -->
+
+    <dimen name="character_panel_height">135dp</dimen>
+
+
 </resources>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/square_panel_size"
-    android:layout_height="@dimen/square_panel_size"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/character_panel_height"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background_square_panel">
+    android:background="@drawable/background_square_panel"
+    android:layout_margin="@dimen/common_margin">
 
     <RelativeLayout
         android:id="@+id/layout_active_panel"
@@ -12,8 +14,8 @@
 
         <ImageView
             android:id="@+id/imageview_character_class"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@mipmap/icons8_witch_96"
             android:alpha="0.15"
             android:layout_alignParentEnd="true"
@@ -26,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/common_margin_half"
             android:textSize="28sp"
+            android:fontFamily="serif\"
             tools:text="Melzar" />
 
         <TextView
@@ -33,23 +36,28 @@
             android:layout_height="wrap_content"
             android:id="@+id/textview_character_class"
             tools:text="Wizard"
-            android:layout_below="@id/textview_character_name"
+            android:textSize="28sp"
+            android:fontFamily="serif"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/common_margin_half"
             android:layout_marginStart="@dimen/common_margin_half"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textview_character_level"
-            tools:text="Lv. 5"
-            android:layout_below="@id/textview_character_class"
+            tools:text="5"
+            android:fontFamily="serif"
+            android:textSize="64sp"
+            android:layout_centerInParent="true"
             android:layout_margin="@dimen/common_margin_half"/>
 
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/imageview_new_char"
-        android:layout_width="@dimen/square_panel_add_size"
-        android:layout_height="@dimen/square_panel_add_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@mipmap/ic_add_black_48dp"
         android:visibility="gone"
         android:layout_centerInParent="true"/>
